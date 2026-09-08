@@ -2,39 +2,38 @@
 
 // define pin
 const uint8_t sensorPin = 2;  
+constexpr uint8_t PULSE_CONSTANT = 1600;
 
-uint32_t pulseCount;
-uint32_t CumKwh;
+volatile unsigned long totalPulses = 0;
+volatile unsigned long kwh = 0;
 
-volatile uint8_t pulseState; 
-
-void readPulse();
+unsigned long safeKwhRead = 0;
 
 void setup() {
   pinMode(sensorPin, INPUT); 
   Serial.begin(9600);      
 
-  // add the interupt function to the program
   attachInterrupt(
     digitalPinToInterrupt(sensorPin),
     readPulse,
-    CHANGE
+    FALLING
   );
 }
 
 void loop() {
   Serial.print("Pulses counted: ");
-  Serial.println(pulseCount);
+  Serial.println(totalPulses);
   delay(800);
+
+  noInterrupts();
+  safeKwhRead = kwh; 
+  interrupts();
 }
 
 /*
   reads and detects pulses of light from the photodiode
 */
 void readPulse() {
-  pulseState = digitalRead(sensorPin);
-
-  if (pulseState == LOW) {
-    pulseCount++;
-  }
+  totalPulses++;
+  kwh = totalPulses / (float) PULSE_CONSTANT;
 }
