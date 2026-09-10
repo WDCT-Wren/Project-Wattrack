@@ -2,6 +2,7 @@
 #include <Wire.h>
 #include "PulseSensor.h"
 #include "Display.h"
+#include "PulseLEDSim.h"
 
 // define pin
 const uint8_t ledPin = 13;
@@ -14,16 +15,7 @@ void setup() {
 }
 
 void loop() {
-  // deliberately trigger two close-together transitions to simulate chatter
-  digitalWrite(ledPin, HIGH);
-  delay(5);
-  digitalWrite(ledPin, LOW);
-  delay(5);
-  digitalWrite(ledPin, HIGH);   // second rapid transition, well inside 50ms window
-  delay(5);
-  digitalWrite(ledPin, LOW);
-  delay(200);  // now well clear of debounce, safe gap before next real pulse
-
+  pulseLED();
   displayData();
   
   delay(50);
