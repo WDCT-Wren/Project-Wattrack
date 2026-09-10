@@ -1,16 +1,17 @@
 #pragma once
 
-inline const uint8_t SENSOR_PIN;
+constexpr uint8_t SENSOR_PIN = 2;
 
-inline constexpr uint16_t PULSE_CONSTANT = 1600; // 1600 imp/kwh
-inline const unsigned long DEBOUNCE_MILLIS = 50; // 50 milliseconds
+constexpr uint16_t PULSE_CONSTANT = 1600; // 1600 imp/kwh
+const unsigned long DEBOUNCE_MILLIS = 50; // 50 milliseconds
 
-inline volatile unsigned long kwh = 0;
-inline volatile unsigned long lastPulseTime = 0;
-inline volatile unsigned long rawFires = 0;
-inline volatile unsigned long totalPulses = 0;
+extern volatile unsigned long kwh;
+extern volatile unsigned long lastPulseTime;
+extern volatile unsigned long rawFires;
+extern volatile unsigned long totalPulses;
 
-inline unsigned long safeKwhRead = 0;
+extern unsigned long safeKwhRead;
 
 void readPulse();
 void initSensor();
+void updateSafeKwh();

@@ -1,6 +1,13 @@
 #include <Arduino.h>
 #include "PulseSensor.h"
 
+volatile unsigned long kwh = 0;
+volatile unsigned long lastPulseTime = 0;
+volatile unsigned long rawFires = 0;
+volatile unsigned long totalPulses = 0;
+
+unsigned long safeKwhRead = 0;
+
 void initSensor() {
   pinMode(SENSOR_PIN, INPUT);
 
@@ -9,6 +16,12 @@ void initSensor() {
     readPulse,
     FALLING
   );
+}
+
+void updateSafeKwh() {
+  noInterrupts();
+  safeKwhRead = kwh;
+  interrupts();
 }
 
 /*
