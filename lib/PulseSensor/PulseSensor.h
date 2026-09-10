@@ -1,5 +1,4 @@
 #pragma once
-#include <Arduino.h>
 
 inline const uint8_t SENSOR_PIN;
 
