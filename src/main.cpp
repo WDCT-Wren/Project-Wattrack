@@ -1,17 +1,9 @@
-#include <Arduino.h>
-#include <Wire.h>
-#include "PulseSensor.h"
-#include "Display.h"
-#include "PulseLEDSim.h"
-
-// define pin
-const uint8_t ledPin = 13;
+#include "header.h"
 
 void setup() {
   initSensor();
   initDisplay();
-
-  pinMode(ledPin, OUTPUT);
+  initLED();
 }
 
 void loop() {
