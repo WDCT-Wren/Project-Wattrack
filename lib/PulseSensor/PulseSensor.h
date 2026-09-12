@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Arduino.h>
+
 constexpr uint8_t SENSOR_PIN = 2;
 
 constexpr uint16_t PULSE_CONSTANT = 1600; // 1600 imp/kwh

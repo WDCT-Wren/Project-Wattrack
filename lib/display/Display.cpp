@@ -1,6 +1,6 @@
 #include <Wire.h>
-#include "Display.h"
-#include "PulseSensor.h"
+#include "display.h"
+#include "pulseSensor.h"
 
 LiquidCrystal_I2C lcd(0x27, 24, 4);
 

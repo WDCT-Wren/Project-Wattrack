@@ -1,5 +1,4 @@
-#include <Arduino.h>
-#include "PulseSensor.h"
+#include "pulseSensor.h"
 
 volatile unsigned long kwh = 0;
 volatile unsigned long lastPulseTime = 0;

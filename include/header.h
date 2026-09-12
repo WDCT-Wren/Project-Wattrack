@@ -3,8 +3,7 @@
 #include <Arduino.h>
 #include <Wire.h>
 
-#include "Display.h"
-#include "EEPROM.h"
-#include "PulseSensor.h"
-#include "PulseLEDSim.h"
-
+#include "display.h"
+#include "pulseSensor.h"
+#include "pulseLEDSim.h"
+#include "storage.h"

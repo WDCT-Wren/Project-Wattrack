@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <stdint.h>
-#include "PulseLEDSim.h"
+#include "pulseLEDSim.h"
 
 void initLED() {
   pinMode(LED_PIN, OUTPUT);
