@@ -2,7 +2,7 @@
 
 #include <Arduino.h>
 
-constexpr uint8_t SENSOR_PIN = 2;
+constexpr uint8_t SENSOR_PIN = 4;
 
 constexpr uint16_t PULSE_CONSTANT = 1600; // 1600 imp/kwh
 const unsigned long DEBOUNCE_MILLIS = 50; // 50 milliseconds

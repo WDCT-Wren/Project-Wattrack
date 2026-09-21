@@ -1,4 +1,5 @@
 #include "pulseSensor.h"
+#include "storage.h"
 
 volatile unsigned long kwh = 0;
 volatile unsigned long lastPulseTime = 0;
@@ -36,5 +37,7 @@ void readPulse() {
   lastPulseTime = now; 
 
   totalPulses++;
+  
+  // volatile kwh computation
   kwh = totalPulses / PULSE_CONSTANT;
 }
