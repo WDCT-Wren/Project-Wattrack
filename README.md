@@ -95,11 +95,12 @@ pio run -e esp32 -t upload
 │       ├── server.h          # WiFi config, web server declarations
 │       ├── server.cpp        # ESPAsyncWebServer + LittleFS + JSON API
 │       ├── credentials.h     # WiFi credentials (gitignored)
-│       ├── credentials.h.example  # Template for credentials.h
-│       └── dashboard/
-│           ├── index.html    # Dashboard markup
-│           ├── styles.css    # Dashboard styles
-│           └── script.js     # Dashboard interactivity
+│       └── credentials.h.example  # Template for credentials.h
+├── data/
+│   └── dashboard/
+│       ├── index.html        # Dashboard markup (uploaded to LittleFS)
+│       ├── styles.css        # Dashboard styles
+│       └── script.js         # Dashboard interactivity
 ├── platformio.ini
 ├── .gitignore
 ├── LICENSE
@@ -190,7 +191,7 @@ The device will connect to WiFi (or fall back to AP mode) and serve the dashboar
 
 ## Web Dashboard
 
-The dashboard lives in `src/web/dashboard/` and is served from the ESP32's flash via LittleFS. It includes:
+The dashboard lives in `data/dashboard/` and is served from the ESP32's flash via LittleFS. It includes:
 
 - A sidebar navigation with Home Energy, Submeters & Devices, and Settings sections.
 - Metric cards for **Power Now**, **Used This Month**, **Estimated Month-End Bill**, and **Active Submeters**.
@@ -210,7 +211,7 @@ The web server (`src/web/server.cpp`) exposes:
 
 ### Updating the dashboard
 
-Edit the files in `src/web/dashboard/` (HTML, CSS, JS) as needed, then re-upload to flash:
+Edit the files in `data/dashboard/` (HTML, CSS, JS) as needed, then re-upload to flash:
 
 ```bash
 pio run -e esp32 -t uploadfs
