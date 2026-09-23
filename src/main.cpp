@@ -11,11 +11,6 @@ void setup() {
 void loop() {
   pulseLED();
 
-  Serial.print("Pulses counted: ");
-  Serial.println(totalPulses);
-  
-  delay(50);
-
   updateSafeKwh();
   savePulseCount(totalPulses);
 }

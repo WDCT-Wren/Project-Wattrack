@@ -6,7 +6,7 @@ volatile unsigned long lastPulseTime = 0;
 volatile unsigned long rawFires = 0;
 volatile unsigned long totalPulses = 0;
 
-unsigned long safeKwhRead = 0;
+double safeKwhRead = 0;
 
 void initSensor() {
   pinMode(SENSOR_PIN, INPUT);
