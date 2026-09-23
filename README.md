@@ -42,7 +42,7 @@ The end goal is a submeter that can estimate electricity bills from real consump
 - **Safe read of volatile kWh data** — `updateSafeKwh()` snapshots the volatile counter under `noInterrupts()` so the web API can read a stable value.
 - **EEPROM persistence** — pulse count survives power cycles; first boot initializes EEPROM with a magic flag.
 - **Visual pulse LED** — GPIO 13 blinks to indicate pulse activity, useful for debugging.
-- **ESP32 web dashboard** — a full-featured single-page dashboard (Tailwind CSS + Material Symbols) served from LittleFS with JSON API endpoints for live consumption data.
+- **ESP32 web dashboard** — a full-featured single-page dashboard (Pico CSS + Material Symbols) served from LittleFS with JSON API endpoints for live consumption data.
 - **LittleFS file serving** — dashboard files (HTML, CSS, JS) are stored in flash and served by ESPAsyncWebServer, with separate JSON endpoints for metrics and chart data.
 
 ---
@@ -99,6 +99,7 @@ pio run -e esp32 -t upload
 ├── data/
 │   └── dashboard/
 │       ├── index.html        # Dashboard markup (uploaded to LittleFS)
+│       ├── pico.min.css      # Pico CSS v2 (vendored framework)
 │       ├── styles.css        # Dashboard styles
 │       └── script.js         # Dashboard interactivity
 ├── platformio.ini
