@@ -12,7 +12,7 @@ extern volatile unsigned long lastPulseTime;
 extern volatile unsigned long rawFires;
 extern volatile unsigned long totalPulses;
 
-extern unsigned long safeKwhRead;
+extern double safeKwhRead;
 
 void readPulse();
 void initSensor();
