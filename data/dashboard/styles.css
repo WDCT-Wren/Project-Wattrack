@@ -693,7 +693,7 @@ details.guide summary { font-size: 0.84rem; font-weight: 700; color: var(--accen
   border-radius: 12px;
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--pico-color);
+  color: var(--preset-text, var(--pico-color));;
   cursor: pointer;
   line-height: 1;
 }
