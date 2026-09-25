@@ -1,12 +1,12 @@
 #include "pulseSensor.h"
 #include "storage.h"
 
-volatile unsigned long kwh = 0;
 volatile unsigned long lastPulseTime = 0;
 volatile unsigned long rawFires = 0;
 volatile unsigned long totalPulses = 0;
 
 double safeKwhRead = 0;
+uint8_t pulseConstant = 1000; //default
 
 void initSensor() {
   pinMode(SENSOR_PIN, INPUT);
@@ -20,7 +20,7 @@ void initSensor() {
 
 void updateSafeKwh() {
   noInterrupts();
-  safeKwhRead = kwh;
+  safeKwhRead = static_cast<double>(totalPulses) / pulseConstant;
   interrupts();
 }
 
@@ -37,7 +37,4 @@ void readPulse() {
   lastPulseTime = now; 
 
   totalPulses++;
-  
-  // volatile kwh computation
-  kwh = totalPulses / PULSE_CONSTANT;
 }
