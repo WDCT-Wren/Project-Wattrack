@@ -11,7 +11,7 @@ extern volatile unsigned long rawFires;
 extern volatile unsigned long totalPulses;
 
 extern double safeKwhRead;
-extern uint8_t pulseConstant;
+extern uint16_t pulseConstant;
 
 void readPulse();
 void initSensor();

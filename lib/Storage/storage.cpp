@@ -19,9 +19,11 @@ void initStorage() {
         EEPROM.commit();
     } else {
         totalPulses = readSavedPulseCount();
-        
+
         Serial.print("Loaded pulses: ");
         Serial.println(totalPulses);
+        Serial.print("Pulse Constant: ");
+        Serial.println(pulseConstant);
     }
 }
 

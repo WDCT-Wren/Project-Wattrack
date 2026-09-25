@@ -6,7 +6,7 @@ volatile unsigned long rawFires = 0;
 volatile unsigned long totalPulses = 0;
 
 double safeKwhRead = 0;
-uint8_t pulseConstant = 1000; //default
+uint16_t pulseConstant = 1000; //default
 
 void initSensor() {
   pinMode(SENSOR_PIN, INPUT);
